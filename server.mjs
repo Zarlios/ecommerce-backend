@@ -25,7 +25,7 @@ server.use(bodyParser.json());
 
 const calculateOrderAmount = (cartItems) =>
   cartItems
-    ? cartItems.reduce((sum, { quantity, price }) => sum + quantity * price, 0)
+    ? cartItems.reduce((sum, { quantity, price }) => sum + quantity * price, 0) * 100
     : 0;
 
 server.post("/create-payment-intent", async (req, res) => {
