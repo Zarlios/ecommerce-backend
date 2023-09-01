@@ -23,16 +23,10 @@ server.use(
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
-const calculateOrderAmount = (cartItems) => {
-  let total = 0;
-  if (cartItems) {
-    return (total = cartItems.reduce(
-      (sum, { quantity, price }) => sum + quantity * price,
-      0
-    ));
-  }
-  return total;
-};
+const calculateOrderAmount = (cartItems) =>
+  cartItems
+    ? cartItems.reduce((sum, { quantity, price }) => sum + quantity * price, 0)
+    : 0;
 
 server.post("/create-payment-intent", async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
