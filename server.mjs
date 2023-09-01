@@ -15,7 +15,7 @@ server.use(express.static("public"));
 server.use(express.json());
 server.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://ecommerce-backend-iulr.onrender.com",
     credentials: true,
   })
 );
