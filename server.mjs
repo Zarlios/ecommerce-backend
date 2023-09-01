@@ -30,6 +30,7 @@ const calculateOrderAmount = (cartItems) =>
 
 server.post("/create-payment-intent", async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
+  console.log("got here post")
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(req.body),
     currency: "usd",
@@ -38,7 +39,7 @@ server.post("/create-payment-intent", async (req, res) => {
       enabled: true,
     },
   });
-
+  console.log(`got here after${paymentIntent.client_secret}`)
   res.send({
     clientSecret: paymentIntent.client_secret,
   });
