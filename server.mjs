@@ -15,7 +15,7 @@ server.use(express.static("public"));
 server.use(express.json());
 server.use(
   cors({
-    origin: "https://ecommerce-backend-iulr.onrender.com",
+    origin: "https://ecommerce-vd25.onrender.com",
     credentials: true,
   })
 );
